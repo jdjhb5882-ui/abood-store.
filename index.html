@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>متجر عبود | Abood Store — Fortnum &amp; Mason Chocolossus 600g</title>
+  <meta name="description" content="بسكويت الشوكولاتة الفاخر Fortnum &amp; Mason Chocolossus بوزن 600 جم من متجر عبود (السيب، مسقط — سلطنة عُمان) مع شحن جوي مبرّد لدول الخليج." />
+
+  <!-- Google Fonts: IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF7F2',
+            borderwarm: '#E7E2D8',
+            emeraldbrand: {
+              DEFAULT: '#064E3B',
+              hover: '#04392B',
+              soft: '#ECFDF5',
+            },
+            amberbrand: {
+              DEFAULT: '#D97706',
+              soft: '#FEF3C7',
+            },
+            aboodteal: '#0E4C5C',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+    body {
+      background-color: #FAF7F2;
+      color: #1C1917;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    /* Strict tabular numerals with dot decimal separator */
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+    .price-num {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+    }
+    /* Safe area inset for modern mobile devices */
+    .pb-safe {
+      padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    }
+    /* Accordion chevron animation */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] .accordion-chevron {
+      transform: rotate(180deg);
+    }
+    /* Slide-over cart drawer transitions supporting both RTL & LTR */
+    #cart-panel {
+      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html[dir="rtl"] #cart-panel {
+      left: 0;
+      right: auto;
+    }
+    html[dir="rtl"] #cart-drawer:not(.is-open) #cart-panel {
+      transform: translateX(-100%);
+    }
+    html[dir="ltr"] #cart-panel {
+      right: 0;
+      left: auto;
+    }
+    html[dir="ltr"] #cart-drawer:not(.is-open) #cart-panel {
+      transform: translateX(100%);
+    }
+    #cart-drawer.is-open #cart-panel {
+      transform: translateX(0);
+    }
+    #cart-backdrop {
+      transition: opacity 220ms ease;
+    }
+    #cart-drawer.is-open #cart-backdrop {
+      opacity: 1;
+    }
+    #cart-drawer:not(.is-open) #cart-backdrop {
+      opacity: 0;
+    }
+    /* Sticky mobile bar reveal animation */
+    #mobile-sticky-bar {
+      transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
+    }
+    #mobile-sticky-bar.is-hidden-bar {
+      transform: translateY(115%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* Gallery cross-fade */
+    .img-fade {
+      animation: fadeSoft 240ms ease-out;
+    }
+    @keyframes fadeSoft {
+      from { opacity: 0.45; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    /* Emerald shimmer animation for unlocked free shipping progress bar */
+    @keyframes emeraldShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-unlocked {
+      background-image: linear-gradient(
+        105deg,
+        #059669 0%,
+        #10B981 35%,
+        #6EE7B7 50%,
+        #10B981 65%,
+        #059669 100%
+      );
+      background-size: 200% 100%;
+      animation: emeraldShimmer 2.1s linear infinite;
+    }
+  </style>
+</head>
+<body class="font-sans bg-cream text-stone-900 pb-28 lg:pb-0 selection:bg-emeraldbrand/15 selection:text-emeraldbrand">
+
+  <!-- =========================================================
+       1. TOP ANNOUNCEMENT BAR (GCC Chilled Shipping + Live Threshold)
+       ========================================================= -->
+  <div class="bg-emeraldbrand text-white text-xs sm:text-[13px] py-2.5 px-4 text-center font-medium">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1">
+      <span id="announcement-shipping-text">شحن سريع ومبرّد من عُمان إلى دول الخليج 🇴🇲 🇸🇦 🇦🇪 🇰🇼 🇶🇦 🇧🇭</span>
+      <span class="hidden sm:inline opacity-40" aria-hidden="true">|</span>
+      <span class="text-amber-300 font-semibold">
+        <span id="announcement-free-label">شحن مجاني للطلبات فوق</span>
+        <span id="top-threshold" class="tabular mx-0.5"></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       2. STICKY HEADER: Logo + Lang Toggle + 6-Currency Selector + Cart
+       ========================================================= -->
+  <header class="sticky top-0 z-30 bg-cream/95 backdrop-blur-sm border-b border-borderwarm">
+    <div class="max-w-6xl mx-auto px-3.5 sm:px-4 h-16 flex items-center justify-between gap-2">
+      <!-- Abood Store Brand Identity -->
+      <a href="#" class="flex items-center gap-2.5 min-h-[44px] focus:outline-none group shrink-0">
+        <div class="w-11 h-11 rounded-full bg-white border-2 border-aboodteal shadow-sm flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-[1.03] transition">
+          <img
+            src="./images/logo.webp"
+            alt="شعار متجر عبود | Abood Store Logo"
+            width="44"
+            height="44"
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-cover rounded-full"
+            onerror="handleLogoFallback(this)"
+          />
+          <!-- Fallback SVG Monogram: Abood Store Cat Mascot with Red Glasses in #0E4C5C Ring -->
+          <svg class="hidden w-full h-full" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle cx="50" cy="50" r="48" fill="#0E4C5C"/>
+            <circle cx="50" cy="50" r="36" fill="#FFFFFF"/>
+            <path d="M32 41L30 25L43 32Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M33.5 37L32.5 28.5L39.5 32Z" fill="#1D4ED8"/>
+            <path d="M68 41L70 25L57 32Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M66.5 37L67.5 28.5L60.5 32Z" fill="#1D4ED8"/>
+            <path d="M28 74C28 53 33 30 50 30C67 30 72 53 72 74" fill="#FFFFFF" stroke="#1C1917" stroke-width="2"/>
+            <ellipse cx="32" cy="57" rx="3.2" ry="6" fill="#FACC15"/>
+            <ellipse cx="68" cy="59" rx="3" ry="5.5" fill="#FACC15"/>
+            <circle cx="43" cy="45" r="5.2" fill="#EF4444"/>
+            <circle cx="57" cy="45" r="5.2" fill="#EF4444"/>
+            <path d="M48.2 45H51.8" stroke="#EF4444" stroke-width="2"/>
+            <path d="M47.5 52Q50 54.5 52.5 52" stroke="#1C1917" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M34 52L24 55M34 55L24 60M66 52L76 55" stroke="#1C1917" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="50" y="12.5" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="800" font-family="sans-serif" letter-spacing="0.5">ABOOD STORE</text>
+            <text x="50" y="94" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="700" font-family="sans-serif">متجر عبود</text>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div id="brand-name-primary" class="font-bold text-[15px] sm:text-base text-stone-900 tracking-tight">متجر عبود</div>
+          <div id="brand-name-sub" class="text-[11px] text-stone-500 font-medium">Abood Store • مسقط</div>
+        </div>
+      </a>
+
+      <!-- Controls: EN/عربي Toggle + GCC 6-Currency Selector + Cart -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <!-- Language Toggle -->
+        <button
+          id="lang-toggle-btn"
+          type="button"
+          aria-label="تبديل اللغة / Switch Language"
+          class="min-w-[44px] min-h-[44px] px-2.5 bg-white border border-borderwarm hover:border-emeraldbrand/60 text-stone-800 hover:text-emeraldbrand text-xs font-bold rounded-xl shadow-sm transition active:scale-95"
+        >
+          EN
+        </button>
+
+        <!-- GCC 6-Currency Selector -->
+        <div class="relative">
+          <label for="currency-select" class="sr-only">Currency</label>
+          <select
+            id="currency-select"
+            aria-label="محوّل العملات الخليجي"
+            class="appearance-none min-h-[44px] bg-white border border-borderwarm hover:border-emeraldbrand/60 text-stone-800 text-xs sm:text-[13px] font-semibold rounded-xl ps-2.5 pe-7 py-2 shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-emeraldbrand tabular transition"
+          >
+            <option value="OMR" selected>🇴🇲 ر.ع (OMR)</option>
+            <option value="SAR">🇸🇦 ر.س (SAR)</option>
+            <option value="AED">🇦🇪 د.إ (AED)</option>
+            <option value="KWD">🇰🇼 د.ك (KWD)</option>
+            <option value="QAR">🇶🇦 ر.ق (QAR)</option>
+            <option value="BHD">🇧🇭 د.ب (BHD)</option>
+          </select>
+          <svg class="w-3.5 h-3.5 text-stone-500 pointer-events-none absolute end-2 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+
+        <!-- Cart Button -->
+        <button
+          id="open-cart-btn"
+          type="button"
+          aria-label="فتح سلة المشتريات"
+          class="relative min-w-[44px] min-h-[44px] bg-white border border-borderwarm hover:border-emeraldbrand/60 rounded-xl flex items-center justify-center text-stone-800 hover:text-emeraldbrand shadow-sm transition active:scale-95"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span
+            id="header-cart-badge"
+            class="hidden absolute -top-1.5 -end-1.5 min-w-[20px] h-5 px-1 bg-amberbrand text-white text-[11px] font-bold rounded-full flex items-center justify-center tabular shadow-sm"
+          >0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       3. MAIN PRODUCT PAGE (Mobile-First + Desktop 2-Column)
+       ========================================================= -->
+  <main class="max-w-6xl mx-auto px-4 py-5 lg:py-10">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-xs text-stone-500 mb-4 flex items-center gap-1.5 flex-wrap">
+      <span id="bc-home">الرئيسية</span>
+      <span aria-hidden="true">/</span>
+      <span id="bc-cat">مستوردات لندن الفاخرة</span>
+      <span aria-hidden="true">/</span>
+      <span id="bc-current" class="text-stone-800 font-semibold truncate">Fortnum &amp; Mason Chocolossus</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+
+      <!-- =====================================================
+           COLUMN 1: INTERACTIVE PRODUCT GALLERY + SWIPE + LIGHTBOX
+           ===================================================== -->
+      <section class="lg:col-span-6 lg:sticky lg:top-24 space-y-3.5" aria-label="Product Gallery">
+        <!-- Main Square Stage -->
+        <div
+          id="gallery-stage"
+          class="group relative bg-white rounded-2xl border border-borderwarm overflow-hidden shadow-sm aspect-square cursor-zoom-in select-none"
+          role="button"
+          tabindex="0"
+          aria-label="Zoom product image"
+        >
+          <img
+            id="main-product-img"
+            src="./images/product-1.webp"
+            alt="Fortnum &amp; Mason Chocolossus Biscuits 600g"
+            width="900"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-cover transition duration-300 group-hover:scale-[1.02]"
+            onerror="handleProductImgFallback(this, 0)"
+          />
+
+          <!-- Authentic UK Import Badge -->
+          <div class="absolute top-3 start-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-emeraldbrand border border-emerald-200 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+            <span id="badge-authentic">مستورد أصلي 🇬🇧</span>
+          </div>
+
+          <!-- Live Photo Counter (1 / 3) -->
+          <div id="gallery-counter" class="absolute top-3 end-3 bg-stone-900/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full tabular shadow-sm">
+            1 / 3
+          </div>
+
+          <!-- Chilled Pack Guarantee Badge -->
+          <div class="absolute bottom-3 start-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm">
+            <span aria-hidden="true">❄️</span>
+            <span id="badge-chilled">تغليف مبرّد مضمون</span>
+          </div>
+
+          <!-- Zoom Lightbox Trigger -->
+          <div class="absolute bottom-3 end-3 bg-white/95 backdrop-blur-sm text-stone-800 border border-borderwarm text-[11px] font-semibold px-2.5 py-1.5 rounded-xl flex items-center gap-1 shadow-sm group-hover:bg-emeraldbrand group-hover:text-white group-hover:border-emeraldbrand transition">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zm0-11v6m-3-3h6"/>
+            </svg>
+            <span id="zoom-btn-label">تكبير</span>
+          </div>
+        </div>
+
+        <!-- 3 Labeled Thumbnails -->
+        <div class="grid grid-cols-3 gap-2.5" role="tablist" aria-label="Product Thumbnails">
+          <!-- Thumb 1: Chocolossus -->
+          <button
+            type="button"
+            data-thumb="0"
+            role="tab"
+            aria-selected="true"
+            class="thumb-btn group relative rounded-2xl overflow-hidden bg-white border-2 border-emeraldbrand ring-2 ring-emeraldbrand/20 transition focus:outline-none shadow-sm"
+          >
+            <div class="aspect-square overflow-hidden bg-stone-50">
+              <img
+                src="./images/product-1.webp"
+                alt="Fortnum &amp; Mason Chocolossus 600g"
+                width="280"
+                height="280"
+                loading="eager"
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-200"
+                onerror="handleProductImgFallback(this, 0)"
+              />
+            </div>
+            <div class="px-2 py-1.5 bg-white border-t border-borderwarm/80 text-center">
+              <span id="thumb-label-0" class="block text-[11px] font-bold text-stone-900 truncate">Chocolossus</span>
+            </div>
+          </button>
+
+          <!-- Thumb 2: Toffolossus -->
+          <button
+            type="button"
+            data-thumb="1"
+            role="tab"
+            aria-selected="false"
+            class="thumb-btn group relative rounded-2xl overflow-hidden bg-white border border-borderwarm hover:border-emeraldbrand/50 transition focus:outline-none shadow-sm"
+          >
+            <div class="aspect-square overflow-hidden bg-white p-1.5">
+              <img
+                src="./images/product-2.webp"
+                alt="Fortnum &amp; Mason Toffolossus 600g"
+                width="280"
+                height="280"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-contain group-hover:scale-105 transition duration-200"
+                onerror="handleProductImgFallback(this, 1)"
+              />
+            </div>
+            <div class="px-2 py-1.5 bg-white border-t border-borderwarm/80 text-center">
+              <span id="thumb-label-1" class="block text-[11px] font-bold text-stone-800 truncate">Toffolossus</span>
+            </div>
+          </button>
+
+          <!-- Thumb 3: Harrods Salted Caramel Almonds -->
+          <button
+            type="button"
+            data-thumb="2"
+            role="tab"
+            aria-selected="false"
+            class="thumb-btn group relative rounded-2xl overflow-hidden bg-white border border-borderwarm hover:border-emeraldbrand/50 transition focus:outline-none shadow-sm"
+          >
+            <div class="aspect-square overflow-hidden bg-white p-1.5">
+              <img
+                src="./images/upsell.webp"
+                alt="Harrods Salted Caramel Almonds 325g"
+                width="280"
+                height="280"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-contain group-hover:scale-105 transition duration-200"
+                onerror="handleProductImgFallback(this, 2)"
+              />
+            </div>
+            <div class="px-2 py-1.5 bg-white border-t border-borderwarm/80 text-center">
+              <span id="thumb-label-2" class="block text-[11px] font-bold text-stone-800 truncate">لوز Harrods</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           COLUMN 2: BUY BOX, FLAVORS, BUNDLES, REVIEWS & ACCORDION
+           ===================================================== -->
+      <section class="lg:col-span-6 space-y-5" aria-label="Product Purchase Options">
+        <!-- Rating + Pulsing Stock Badge -->
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <a href="#gulf-reviews" class="flex items-center gap-1.5 text-xs font-semibold text-stone-700 hover:text-emeraldbrand transition">
+            <span class="text-amberbrand tracking-tight text-sm" aria-label="4.9 out of 5 stars">★★★★★</span>
+            <span class="tabular font-bold">4.9</span>
+            <span id="review-count-label" class="text-stone-500">(128 تقييم من عملاء الخليج)</span>
+          </a>
+          <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="stock-status-label">متوفر للشحن الفوري من مسقط</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Title & Description -->
+        <div class="space-y-2">
+          <h1 id="product-title" class="text-2xl sm:text-[28px] font-bold text-stone-900 leading-snug"></h1>
+          <p id="product-desc" class="text-sm text-stone-600 leading-relaxed"></p>
+        </div>
+
+        <!-- Live Price Box + Per-Tin Unit Price + Dynamic Gulf Delivery ETA -->
+        <div class="bg-white border border-borderwarm rounded-2xl p-4 shadow-sm space-y-3">
+          <div class="flex items-baseline flex-wrap gap-2.5 sm:gap-3">
+            <span id="hero-price" class="text-2xl sm:text-3xl font-bold text-emeraldbrand tabular"></span>
+            <span id="hero-compare-price" class="text-sm text-stone-400 line-through tabular"></span>
+            <span id="hero-savings-badge" class="text-xs font-bold text-amber-900 bg-amberbrand-soft border border-amber-200 px-2.5 py-1 rounded-lg tabular"></span>
+          </div>
+          <div id="hero-unit-price-row" class="text-xs font-semibold text-stone-600 flex items-center flex-wrap gap-x-3 gap-y-1 tabular"></div>
+
+          <!-- Dynamic Delivery ETA Banner (updates with currency/country) -->
+          <div class="flex items-start gap-2.5 pt-2.5 border-t border-borderwarm/80 text-xs text-stone-800">
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-emerald-50 border border-emerald-200 text-emeraldbrand shrink-0 mt-0.5" aria-hidden="true">🚀</span>
+            <div class="leading-snug space-y-0.5">
+              <div id="dynamic-delivery-eta" class="font-bold text-stone-900"></div>
+              <div id="dynamic-delivery-dates" class="text-[11px] text-emeraldbrand font-semibold"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flavor Selector Pills (Chocolossus vs Toffolossus) -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h2 id="flavor-section-heading" class="text-sm font-bold text-stone-900">اختر النكهة (الإصدار):</h2>
+            <span id="flavor-spec-tag" class="text-[11px] font-semibold text-stone-500">عبوة معدنية 600 جم • 14 قطعة</span>
+          </div>
+          <div id="flavor-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" role="radiogroup" aria-label="Select Biscuit Flavor"></div>
+        </div>
+
+        <!-- 3 Gulf Trust Cards -->
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="bg-white border border-borderwarm rounded-2xl p-2.5 sm:p-3 flex flex-col items-center gap-1 shadow-sm">
+            <span class="text-lg" aria-hidden="true">❄️</span>
+            <span id="trust-1" class="text-[11px] sm:text-xs font-semibold text-stone-800 leading-tight">تغليف محكم ومبرّد</span>
+          </div>
+          <div class="bg-white border border-borderwarm rounded-2xl p-2.5 sm:p-3 flex flex-col items-center gap-1 shadow-sm">
+            <span class="text-lg" aria-hidden="true">🚀</span>
+            <span id="trust-2" class="text-[11px] sm:text-xs font-semibold text-stone-800 leading-tight">شحن للخليج 2–4 أيام</span>
+          </div>
+          <div class="bg-white border border-borderwarm rounded-2xl p-2.5 sm:p-3 flex flex-col items-center gap-1 shadow-sm">
+            <span class="text-lg" aria-hidden="true">🛡️</span>
+            <span id="trust-3" class="text-[11px] sm:text-xs font-semibold text-stone-800 leading-tight">أصلي ومضمون 100%</span>
+          </div>
+        </div>
+
+        <!-- 3-Tier AOV Bundle Deals -->
+        <div class="space-y-3 pt-1">
+          <div class="flex items-center justify-between">
+            <h2 id="bundle-section-heading" class="text-sm font-bold text-stone-900">اختر الباقة المناسبة لك:</h2>
+            <span id="bundle-section-sub" class="text-xs font-semibold text-emeraldbrand">وفّر أكثر مع باقات الضيافة</span>
+          </div>
+          <div id="bundle-list" class="space-y-2.5" role="radiogroup" aria-label="Bundle Deals"></div>
+        </div>
+
+        <!-- Primary Add to Cart CTA + GCC Payment Badges -->
+        <div class="space-y-3 pt-1">
+          <button
+            id="main-add-to-cart"
+            type="button"
+            class="w-full min-h-[54px] bg-emeraldbrand hover:bg-emeraldbrand-hover active:scale-[0.99] text-white font-bold text-base rounded-2xl px-6 py-3.5 shadow-lg shadow-emerald-950/15 flex items-center justify-center gap-3 transition"
+          >
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span>
+              <span id="main-cta-label">أضف للسلة</span> — <span id="main-cta-price" class="tabular"></span>
+            </span>
+          </button>
+
+          <!-- GCC Payment Badges -->
+          <div class="bg-white border border-borderwarm rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs font-medium text-stone-600 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-emeraldbrand shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.1 0 2 .9 2 2v3H10v-3c0-1.1.9-2 2-2zm-5 0V9a5 5 0 0110 0v2h1a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6a2 2 0 012-2h1z"/>
+              </svg>
+              <span id="payment-label">دفع إلكتروني مشفّر وآمن:</span>
+            </span>
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Apple Pay -->
+              <span class="inline-flex items-center justify-center h-7 px-2.5 rounded-lg bg-stone-900 text-white text-[11px] font-semibold tracking-tight" aria-label="Apple Pay">
+                <svg class="w-3 h-3 me-1 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                Pay
+              </span>
+              <!-- VISA -->
+              <span class="inline-flex items-center justify-center h-7 px-2.5 rounded-lg bg-stone-50 border border-stone-200 text-[#1A1F71] text-[11px] font-extrabold italic tracking-wide" aria-label="Visa">
+                VISA
+              </span>
+              <!-- Mastercard SVG -->
+              <span class="inline-flex items-center justify-center h-7 px-2 rounded-lg bg-stone-50 border border-stone-200" aria-label="Mastercard">
+                <svg class="h-4 w-7" viewBox="0 0 36 22" fill="none" aria-hidden="true">
+                  <circle cx="13" cy="11" r="8" fill="#EB001B"/>
+                  <circle cx="23" cy="11" r="8" fill="#F79E1B" fill-opacity="0.9"/>
+                </svg>
+              </span>
+              <!-- Mada / KNET -->
+              <span class="inline-flex items-center justify-center h-7 px-2.5 rounded-lg bg-stone-50 border border-stone-200 text-emeraldbrand text-[11px] font-bold">
+                مدى / KNET
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Verified Gulf Mini-Reviews (Kuwait, KSA, Oman) -->
+        <div id="gulf-reviews" class="space-y-3 pt-1">
+          <div class="flex items-center justify-between">
+            <h2 id="reviews-heading" class="text-sm font-bold text-stone-900">آراء عملائنا في الخليج</h2>
+            <span id="reviews-verified-badge" class="text-[11px] font-semibold text-emeraldbrand bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">طلبات موثّقة ✓</span>
+          </div>
+          <div id="reviews-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5"></div>
+        </div>
+
+        <!-- Clean 3-Item Accordion -->
+        <div class="divide-y divide-borderwarm border border-borderwarm rounded-2xl bg-white overflow-hidden shadow-sm">
+          <details class="group" open>
+            <summary class="flex items-center justify-between gap-3 p-4 min-h-[48px] cursor-pointer font-bold text-sm text-stone-900 select-none">
+              <span id="acc-title-1">تفاصيل المنتج والمواصفات (600 جم)</span>
+              <svg class="accordion-chevron w-4 h-4 text-stone-500 transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div id="acc-body-1" class="px-4 pb-4 text-xs sm:text-[13px] text-stone-600 leading-relaxed space-y-2"></div>
+          </details>
+
+          <details class="group">
+            <summary class="flex items-center justify-between gap-3 p-4 min-h-[48px] cursor-pointer font-bold text-sm text-stone-900 select-none">
+              <span id="acc-title-2">الشحن المبرّد لدول الخليج (2–4 أيام)</span>
+              <svg class="accordion-chevron w-4 h-4 text-stone-500 transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div id="acc-body-2" class="px-4 pb-4 text-xs sm:text-[13px] text-stone-600 leading-relaxed"></div>
+          </details>
+
+          <details class="group">
+            <summary class="flex items-center justify-between gap-3 p-4 min-h-[48px] cursor-pointer font-bold text-sm text-stone-900 select-none">
+              <span id="acc-title-3">ضمان الأصالة وجودة الاستلام</span>
+              <svg class="accordion-chevron w-4 h-4 text-stone-500 transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div id="acc-body-3" class="px-4 pb-4 text-xs sm:text-[13px] text-stone-600 leading-relaxed"></div>
+          </details>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       4. CLEAN FOOTER (Abood Store Independent Identity)
+       ========================================================= -->
+  <footer class="mt-12 bg-stone-900 text-stone-300 border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+      <!-- Brand Column -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-white border-2 border-aboodteal flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
+            <img
+              src="./images/logo.webp"
+              alt="Abood Store Logo"
+              width="44"
+              height="44"
+              referrerpolicy="no-referrer"
+              class="w-full h-full object-cover rounded-full"
+              onerror="handleLogoFallback(this)"
+            />
+            <svg class="hidden w-full h-full" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="48" fill="#0E4C5C"/>
+              <circle cx="50" cy="50" r="36" fill="#FFFFFF"/>
+              <path d="M32 41L30 25L43 32Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2"/>
+              <path d="M68 41L70 25L57 32Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2"/>
+              <path d="M28 74C28 53 33 30 50 30C67 30 72 53 72 74" fill="#FFFFFF" stroke="#1C1917" stroke-width="2"/>
+              <circle cx="43" cy="45" r="5.2" fill="#EF4444"/>
+              <circle cx="57" cy="45" r="5.2" fill="#EF4444"/>
+              <path d="M48.2 45H51.8" stroke="#EF4444" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div id="footer-brand-name" class="font-bold text-white text-base">متجر عبود</div>
+            <div id="footer-brand-sub" class="text-xs text-stone-400">Abood Store — مستوردات فاخرة للخليج</div>
+          </div>
+        </div>
+        <p id="footer-about" class="text-xs text-stone-400 leading-relaxed"></p>
+      </div>
+
+      <!-- Official Store Info -->
+      <div class="space-y-2.5 text-xs">
+        <div id="footer-info-title" class="font-bold text-white text-sm mb-2">بيانات المتجر الرسمية</div>
+        <p class="flex items-center gap-2">
+          <span aria-hidden="true">📍</span>
+          <span id="footer-address">السيب، مسقط — سلطنة عُمان</span>
+        </p>
+        <p class="flex items-center gap-2">
+          <span aria-hidden="true">🌐</span>
+          <span dir="ltr" class="text-amber-300 font-semibold">aboodstore.om</span>
+        </p>
+        <p class="flex items-center gap-2">
+          <span aria-hidden="true">✉️</span>
+          <a href="mailto:support@aboodstore.om" dir="ltr" class="hover:text-white transition">support@aboodstore.om</a>
+        </p>
+      </div>
+
+      <!-- Direct WhatsApp Concierge -->
+      <div class="space-y-3">
+        <div id="footer-wa-title" class="font-bold text-white text-sm">خدمة عملاء الخليج</div>
+        <p id="footer-wa-desc" class="text-xs text-stone-400 leading-relaxed"></p>
+        <a
+          id="footer-wa-link"
+          href="https://wa.me/96895602212?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B3%D9%83%D9%88%D9%8A%D8%AA%20Fortnum%20%26%20Mason%20Chocolossus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 min-h-[44px] bg-[#25D366] hover:bg-[#1ebe5d] text-stone-950 font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
+        >
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.03 2C6.5 2 2 6.48 2 12c0 1.98.58 3.82 1.57 5.37L2.5 22l4.77-1.04A9.97 9.97 0 0012.03 22C17.56 22 22 17.52 22 12S17.56 2 12.03 2zm5.82 14.12c-.24.68-1.42 1.3-1.95 1.38-.5.08-1.14.11-1.84-.11-.43-.14-.98-.32-1.69-.63-2.97-1.29-4.91-4.3-5.06-4.5-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.84 2.04.91 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.77 1.27 1.65 2.05 1.14 1.01 2.1 1.33 2.4 1.48.3.15.47.12.64-.08.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/>
+          </svg>
+          <span dir="ltr" class="tabular">+968 95602212</span>
+          <span id="footer-wa-btn-text">— واتساب متجر عبود</span>
+        </a>
+      </div>
+    </div>
+    <div id="footer-copyright" class="border-t border-stone-800 py-4 px-4 text-center text-[11px] text-stone-500">
+      © 2026 متجر عبود (Abood Store) — السيب، مسقط، سلطنة عُمان. جميع الحقوق محفوظة.
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       5. SMART MOBILE STICKY BOTTOM BAR (Auto-hides via IntersectionObserver)
+       ========================================================= -->
+  <div id="mobile-sticky-bar" class="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-sm border-t border-borderwarm px-4 pt-3 pb-safe shadow-[0_-6px_24px_rgba(0,0,0,0.08)]">
+    <div class="max-w-xl mx-auto flex items-center gap-3">
+      <div class="min-w-0 flex-1">
+        <div id="sticky-bundle-label" class="text-[11px] text-stone-500 font-medium truncate"></div>
+        <div id="sticky-price" class="text-lg font-bold text-emeraldbrand tabular leading-tight"></div>
+      </div>
+      <button
+        id="sticky-add-to-cart"
+        type="button"
+        class="shrink-0 min-h-[48px] bg-emeraldbrand hover:bg-emeraldbrand-hover active:scale-[0.98] text-white font-bold text-sm rounded-xl px-5 py-3 shadow-md transition flex items-center justify-center gap-2"
+      >
+        <span id="sticky-cta-label">أضف للسلة</span>
+        <span id="sticky-cta-arrow" aria-hidden="true">←</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       6. SLIDE-OVER CART DRAWER (Free Shipping Progress + 1-Click Harrods Upsell + Gift Note)
+       ========================================================= -->
+  <aside id="cart-drawer" class="fixed inset-0 z-50 hidden" aria-modal="true" role="dialog" aria-label="Shopping Cart">
+    <div id="cart-backdrop" class="absolute inset-0 bg-stone-950/50 backdrop-blur-sm"></div>
+
+    <div id="cart-panel" class="absolute inset-y-0 w-full max-w-md bg-white shadow-2xl flex flex-col">
+      <!-- Drawer Header -->
+      <div class="px-5 py-4 border-b border-borderwarm flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <h2 id="cart-drawer-title" class="font-bold text-base text-stone-900">سلة المشتريات</h2>
+          <span id="drawer-count-pill" class="text-xs font-bold bg-emerald-50 text-emeraldbrand px-2.5 py-0.5 rounded-full tabular">0</span>
+        </div>
+        <button
+          id="close-cart-btn"
+          type="button"
+          aria-label="Close Cart"
+          class="min-w-[44px] min-h-[44px] rounded-xl hover:bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 transition text-lg"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Dynamic Free Shipping Progress Bar (25.000 OMR Threshold) -->
+      <div class="px-5 py-3.5 bg-cream border-b border-borderwarm space-y-2">
+        <p id="shipping-status-text" class="text-xs font-semibold text-stone-800 text-center tabular"></p>
+        <div class="w-full h-2.5 bg-stone-200 rounded-full overflow-hidden">
+          <div id="shipping-progress-bar" class="h-full bg-amberbrand rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Scrollable Cart Body -->
+      <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+        <!-- Items List -->
+        <div id="cart-items-container" class="space-y-3"></div>
+
+        <!-- 1-Click Upsell Card: Harrods Salted Caramel Almonds (325g — 3.500 OMR) -->
+        <div id="cart-upsell-section" class="hidden space-y-2 pt-1">
+          <div class="flex items-center justify-between">
+            <span id="upsell-header-pill" class="text-[11px] font-bold text-amber-900 bg-amberbrand-soft px-2.5 py-0.5 rounded-full">✨ أكمل سلتك للشحن المجاني</span>
+            <span id="upsell-header-sub" class="text-[11px] text-stone-500">إضافة بضغطة واحدة</span>
+          </div>
+
+          <div class="p-3 rounded-2xl border border-dashed border-amber-400 bg-amberbrand-soft/60 flex items-center justify-between gap-3 shadow-sm">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <img
+                src="./images/upsell.webp"
+                alt="Harrods Salted Caramel Almonds 325g"
+                width="54"
+                height="54"
+                referrerpolicy="no-referrer"
+                class="w-14 h-14 rounded-xl object-contain bg-white p-1 border border-amber-200 shrink-0"
+                onerror="handleProductImgFallback(this, 2)"
+              />
+              <div class="min-w-0">
+                <div id="upsell-badge" class="text-[10px] font-bold text-amber-900">تفتح الشحن المجاني فوراً مع باقة الـ 3 علب</div>
+                <div id="upsell-title" class="text-xs font-bold text-stone-900 truncate">لوز Harrods بالكراميل المملح (325 جم)</div>
+                <div id="upsell-harrods-price" class="text-xs font-bold text-emeraldbrand tabular mt-0.5"></div>
+              </div>
+            </div>
+            <button
+              id="add-upsell-harrods-btn"
+              type="button"
+              class="shrink-0 min-h-[42px] bg-emeraldbrand hover:bg-emeraldbrand-hover active:scale-95 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-sm"
+            >
+              + أضف
+            </button>
+          </div>
+        </div>
+
+        <!-- Complimentary Luxury Gift Note Checkbox + Textarea -->
+        <div id="gift-note-wrapper" class="hidden rounded-2xl border border-borderwarm bg-cream/70 p-3.5 space-y-2.5">
+          <label class="flex items-center gap-2.5 cursor-pointer select-none min-h-[32px]">
+            <input
+              id="gift-note-checkbox"
+              type="checkbox"
+              class="w-4 h-4 rounded accent-emeraldbrand cursor-pointer"
+            />
+            <span id="gift-note-label" class="text-xs font-bold text-stone-800">🎁 إضافة بطاقة إهداء فاخرة مجانية</span>
+          </label>
+          <div id="gift-note-input-box" class="hidden space-y-1">
+            <label for="gift-note-textarea" class="sr-only">Gift Note Message</label>
+            <textarea
+              id="gift-note-textarea"
+              rows="2"
+              maxlength="160"
+              placeholder="اكتب عبارة الإهداء هنا (مثال: كل عام وأنتم بخير، هدية فاخرة من مسقط...)"
+              class="w-full text-xs bg-white border border-borderwarm rounded-xl px-3 py-2.5 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emeraldbrand resize-none"
+            ></textarea>
+            <div class="text-[10px] text-stone-400 text-end tabular">
+              <span id="gift-char-count">0</span> / 160
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Footer & Checkout Trigger -->
+      <div class="px-5 py-4 border-t border-borderwarm bg-cream/85 space-y-3 pb-safe">
+        <div class="space-y-1.5 text-sm">
+          <div class="flex items-center justify-between text-stone-600 text-xs">
+            <span id="cart-shipping-country-label"></span>
+            <span id="cart-shipping-label" class="font-semibold text-stone-800"></span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span id="cart-subtotal-label" class="font-bold text-stone-900">المجموع الفرعي:</span>
+            <span id="cart-subtotal" class="text-lg font-bold text-emeraldbrand tabular"></span>
+          </div>
+        </div>
+        <button
+          id="checkout-btn"
+          type="button"
+          class="w-full min-h-[50px] bg-emeraldbrand hover:bg-emeraldbrand-hover disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm rounded-xl py-3.5 shadow-md transition active:scale-[0.99]"
+        >
+          <span id="checkout-btn-label">إتمام الطلب الآمن ←</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       7. LIGHTBOX ZOOM MODAL (Touch Swipe + Keyboard Arrows)
+       ========================================================= -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Full Image Preview">
+    <div id="lightbox-backdrop" class="absolute inset-0 bg-stone-950/85 backdrop-blur-sm"></div>
+    <div class="relative z-10 max-w-2xl w-full flex flex-col items-center gap-3">
+      <div class="w-full flex items-center justify-between text-white px-1 gap-3">
+        <span id="lightbox-title" class="text-xs sm:text-sm font-bold truncate"></span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span id="lightbox-counter" class="text-xs font-semibold bg-white/15 px-2.5 py-1 rounded-full tabular">1 / 3</span>
+          <button
+            id="close-lightbox-btn"
+            type="button"
+            aria-label="Close Zoom"
+            class="min-w-[44px] min-h-[44px] rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition text-lg"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+      <div id="lightbox-stage" class="relative w-full aspect-square max-h-[75vh] bg-white rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="" referrerpolicy="no-referrer" class="w-full h-full object-contain" />
+        <button
+          id="lightbox-prev"
+          type="button"
+          aria-label="Previous Image"
+          class="absolute start-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] rounded-full bg-stone-900/75 hover:bg-stone-900 text-white flex items-center justify-center transition shadow-md"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <button
+          id="lightbox-next"
+          type="button"
+          aria-label="Next Image"
+          class="absolute end-3 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] rounded-full bg-stone-900/75 hover:bg-stone-900 text-white flex items-center justify-center transition shadow-md"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       8. AURIX STUDIO TURNKEY SHOPIFY INTEGRATION PREVIEW MODAL
+       ========================================================= -->
+  <div id="preview-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-backdrop" class="absolute inset-0 bg-stone-950/60 backdrop-blur-sm"></div>
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-borderwarm text-center space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 text-emeraldbrand mx-auto flex items-center justify-center text-xl font-bold">
+        ✓
+      </div>
+      <div class="space-y-1">
+        <span id="modal-kicker" class="text-[11px] font-bold tracking-wider uppercase text-amberbrand">AURIX STUDIO • معاينة تفاعلية</span>
+        <h3 id="modal-title" class="text-lg font-bold text-stone-900">ربط مباشر مع متجر عبود على Shopify</h3>
+      </div>
+
+      <!-- Live Order Simulation Summary -->
+      <div id="modal-order-summary" class="text-start bg-cream p-3.5 rounded-2xl border border-borderwarm space-y-2 text-xs"></div>
+
+      <p id="modal-explanation" class="text-xs sm:text-[13px] text-stone-600 leading-relaxed bg-stone-50 p-3.5 rounded-2xl border border-stone-200"></p>
+
+      <button
+        id="close-modal-btn"
+        type="button"
+        class="w-full min-h-[46px] bg-emeraldbrand hover:bg-emeraldbrand-hover text-white font-bold text-sm rounded-xl transition shadow-sm"
+      >
+        حسناً، متابعة استعراض المعاينة
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       9. TOAST NOTIFICATION (Replaces alert())
+       ========================================================= -->
+  <div id="toast-bar" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-2 transition-all duration-200">
+    <div class="bg-stone-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap">
+      <span class="text-emerald-400">✓</span>
+      <span id="toast-message"></span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       APPLICATION ENGINE (Zero External JS Dependencies)
+       ========================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------------------------------------------------------
+         1. VERIFIED REAL PRODUCT & LOGO IMAGE URLS
+         --------------------------------------------------------- */
+      const GALLERY_ITEMS = [
+        {
+          primary: './images/product-1.webp',
+          fallback: '',
+          placeholder: '',
+          objectFit: 'object-cover',
+          titleAr: 'Fortnum & Mason Chocolossus — 600 جم',
+          titleEn: 'Fortnum & Mason Chocolossus Biscuits — 600g'
+        },
+        {
+          primary: './images/product-2.webp',
+          fallback: '',
+          placeholder: '',
+          objectFit: 'object-contain bg-white p-3',
+          titleAr: 'Fortnum & Mason Toffolossus — 600 جم',
+          titleEn: 'Fortnum & Mason Toffolossus Biscuits — 600g'
+        },
+        {
+          primary: './images/upsell.webp',
+          fallback: '',
+          placeholder: '',
+          objectFit: 'object-contain bg-white p-4',
+          titleAr: 'لوز Harrods بالكراميل المملح — 325 جم',
+          titleEn: 'Harrods Salted Caramel Almonds — 325g'
+        }
+      ];
+
+      // Logo fallback -> displays the circular SVG cat mascot monogram
+      window.handleLogoFallback = function (img) {
+        img.classList.add('hidden');
+        if (img.nextElementSibling) {
+          img.nextElementSibling.classList.remove('hidden');
+        }
+      };
+
+      // Multi-stage product image fallback (Primary -> Verified Mirror -> Branded Placeholder)
+      window.handleProductImgFallback = function (img, idx) {
+        const item = GALLERY_ITEMS[idx] || GALLERY_ITEMS[0];
+        const step = Number(img.dataset.fallbackStep || 0);
+        if (step === 0 && item.fallback) {
+          img.dataset.fallbackStep = '1';
+          img.src = item.fallback;
+        }
+      };
+
+      /* ---------------------------------------------------------
+         2. GCC CURRENCIES, FLAVORS, BUNDLES & UPSELL DATA
+         --------------------------------------------------------- */
+      const FREE_SHIPPING_OMR = 25.000;
+
+      const CURRENCIES = {
+        OMR: {
+          rate: 1.00,
+          decimals: 3,
+          symbolAr: 'ر.ع',
+          symbolEn: 'OMR',
+          flag: '🇴🇲',
+          countryAr: 'سلطنة عُمان',
+          countryEn: 'Oman',
+          minDays: 1,
+          maxDays: 1,
+          etaAr: 'توصيل مبرّد داخل مسقط وعُمان خلال 24 ساعة',
+          etaEn: 'Chilled courier delivery across Muscat & Oman within 24h'
+        },
+        SAR: {
+          rate: 9.75,
+          decimals: 2,
+          symbolAr: 'ر.س',
+          symbolEn: 'SAR',
+          flag: '🇸🇦',
+          countryAr: 'السعودية',
+          countryEn: 'Saudi Arabia',
+          minDays: 2,
+          maxDays: 4,
+          etaAr: 'شحن جوي مبرّد إلى السعودية خلال 2–4 أيام عمل',
+          etaEn: 'Express chilled air shipping to Saudi Arabia in 2–4 business days'
+        },
+        AED: {
+          rate: 9.55,
+          decimals: 2,
+          symbolAr: 'د.إ',
+          symbolEn: 'AED',
+          flag: '🇦🇪',
+          countryAr: 'الإمارات',
+          countryEn: 'UAE',
+          minDays: 2,
+          maxDays: 3,
+          etaAr: 'شحن جوي مبرّد إلى الإمارات خلال 2–3 أيام عمل',
+          etaEn: 'Express chilled air shipping to the UAE in 2–3 business days'
+        },
+        KWD: {
+          rate: 0.80,
+          decimals: 3,
+          symbolAr: 'د.ك',
+          symbolEn: 'KWD',
+          flag: '🇰🇼',
+          countryAr: 'الكويت',
+          countryEn: 'Kuwait',
+          minDays: 2,
+          maxDays: 3,
+          etaAr: 'شحن جوي مبرّد إلى الكويت خلال 2–3 أيام عمل',
+          etaEn: 'Express chilled air shipping to Kuwait in 2–3 business days'
+        },
+        QAR: {
+          rate: 9.46,
+          decimals: 2,
+          symbolAr: 'ر.ق',
+          symbolEn: 'QAR',
+          flag: '🇶🇦',
+          countryAr: 'قطر',
+          countryEn: 'Qatar',
+          minDays: 2,
+          maxDays: 3,
+          etaAr: 'شحن جوي مبرّد إلى قطر خلال 2–3 أيام عمل',
+          etaEn: 'Express chilled air shipping to Qatar in 2–3 business days'
+        },
+        BHD: {
+          rate: 0.98,
+          decimals: 3,
+          symbolAr: 'د.ب',
+          symbolEn: 'BHD',
+          flag: '🇧🇭',
+          countryAr: 'البحرين',
+          countryEn: 'Bahrain',
+          minDays: 2,
+          maxDays: 3,
+          etaAr: 'شحن جوي مبرّد إلى البحرين خلال 2–3 أيام عمل',
+          etaEn: 'Express chilled air shipping to Bahrain in 2–3 business days'
+        }
+      };
+
+      const FLAVORS = [
+        {
+          id: 'chocolossus',
+          shortName: 'Chocolossus',
+          imgIdx: 0,
+          pillTitleAr: 'Chocolossus (شوكولاتة داكنة)',
+          pillDescAr: 'مغطى بشوكولاتة داكنة ومكسرات ماكاديميا',
+          pillTitleEn: 'Chocolossus (Dark Chocolate)',
+          pillDescEn: 'Rich dark chocolate, macadamia & candied fruit',
+          titleAr: 'بسكويت الشوكولاتة الفاخر — Fortnum & Mason Chocolossus المستورد',
+          titleEn: 'Fortnum & Mason Chocolossus Luxury Biscuits — 600g Tin',
+          descAr: 'العبوة المعدنية البريطانية الأصلية بالحجم الكبير (600 جرام — 14 قطعة فاخرة)؛ بسكويت غني بمكسرات الماكاديميا والفواكه المسكّرة ومغطى بطبقة سميكة من الشوكولاتة الداكنة، محفوظ في مستودعنا المبرّد بمسقط وجاهز للضيافة والإهداء.',
+          descEn: 'Authentic London cylindrical presentation tin (600g — 14 luxury biscuits) packed with macadamia nuts and fruit, enrobed in thick dark chocolate. Stored in our climate-controlled Muscat vault for pristine GCC gifting.'
+        },
+        {
+          id: 'toffolossus',
+          shortName: 'Toffolossus',
+          imgIdx: 1,
+          pillTitleAr: 'Toffolossus (توفي وكراميل)',
+          pillDescAr: 'قطع توفي إنجليزي مغطاة بشوكولاتة الحليب',
+          pillTitleEn: 'Toffolossus (Toffee & Milk Choc)',
+          pillDescEn: 'Chewy English toffee coated in smooth milk chocolate',
+          titleAr: 'بسكويت التوفي الفاخر — Fortnum & Mason Toffolossus المستورد',
+          titleEn: 'Fortnum & Mason Toffolossus Luxury Biscuits — 600g Tin',
+          descAr: 'العبوة المعدنية الأيقونية الأصلية من لندن (600 جرام — 14 قطعة فاخرة)؛ بسكويت بالزبدة محشو بقطع التوفي الإنجليزي المقرمش ومغلف بشوكولاتة الحليب الناعمة، يُشحن بتغليف عازل ومبرّد لجميع دول الخليج.',
+          descEn: 'Iconic London tall tin (600g — 14 luxury biscuits) loaded with buttery English toffee chunks and generously coated in velvety milk chocolate, shipped chilled across the GCC.'
+        }
+      ];
+
+      const BUNDLES = [
+        {
+          id: 'bundle-1',
+          units: 1,
+          priceOMR: 8.500,
+          compareOMR: 9.500,
+          discountPct: 0,
+          popular: false,
+          titleAr: 'علبة واحدة (600 جم)',
+          subAr: '14 قطعة فاخرة في عبوة معدنية أصلية',
+          titleEn: '1 Luxury Tin (600g)',
+          subEn: '14 luxury biscuits in signature metal tin'
+        },
+        {
+          id: 'bundle-2',
+          units: 2,
+          priceOMR: 16.150,
+          compareOMR: 17.000,
+          discountPct: 5,
+          popular: false,
+          titleAr: 'علبتان — توفير 5%',
+          subAr: 'مثالية للضيافة مع تغليف عازل ومبرّد',
+          titleEn: '2 Tins — Save 5%',
+          subEn: 'Ideal for hosting with insulated cold pack'
+        },
+        {
+          id: 'bundle-3',
+          units: 3,
+          priceOMR: 22.950,
+          compareOMR: 25.500,
+          discountPct: 10,
+          popular: true,
+          titleAr: 'باقة الضيافة — 3 علب',
+          subAr: 'وفر 10% + أولوية تغليف مبرّد فوري',
+          titleEn: '3-Tin Hospitality Pack',
+          subEn: 'Save 10% + priority chilled gift packing'
+        }
+      ];
+
+      const UPSELL_HARRODS = {
+        id: 'upsell-harrods-almonds',
+        priceOMR: 3.500,
+        imgIdx: 2,
+        titleAr: 'لوز Harrods بالكراميل المملح',
+        subAr: 'عبوة Harrods الفاخرة (325 جم)',
+        titleEn: 'Harrods Salted Caramel Almonds',
+        subEn: 'Signature Harrods Drum (325g)'
+      };
+
+      const REVIEWS = [
+        {
+          nameAr: 'عميل من الكويت',
+          nameEn: 'Customer, Kuwait',
+          cityAr: '🇰🇼 الكويت',
+          cityEn: '🇰🇼 Kuwait',
+          textAr: 'وصلني خلال يومين للكويت بالتغليف المبرّد؛ الشوكولاتة متماسكة 100% بدون أي ذوبان والعلبة فخمة جداً.',
+          textEn: 'Arrived in Kuwait in 2 days inside insulated cold packing—chocolate was 100% intact with zero melting.'
+        },
+        {
+          nameAr: 'عميلة من الرياض',
+          nameEn: 'Customer, Riyadh',
+          cityAr: '🇸🇦 الرياض',
+          cityEn: '🇸🇦 Riyadh',
+          textAr: 'طلبت باقة الـ 3 علب وأضفت لوز هارودز للشحن المجاني، وصلت للرياض باردة وجاهزة للإهداء.',
+          textEn: 'Ordered the 3-tin pack plus Harrods almonds for free shipping. Arrived chilled in Riyadh, gift-ready.'
+        },
+        {
+          nameAr: 'عميلة من مسقط',
+          nameEn: 'Customer, Muscat',
+          cityAr: '🇴🇲 مسقط',
+          cityEn: '🇴🇲 Muscat',
+          textAr: 'توصيل خلال ساعات داخل مسقط والوزن 600 جم كبير ومشرف للضيافة مع القهوة المختصة.',
+          textEn: 'Same-day chilled delivery in Muscat. The 600g tin is generous and elevates coffee hospitality.'
+        }
+      ];
+
+      /* ---------------------------------------------------------
+         3. APPLICATION STATE
+         --------------------------------------------------------- */
+      let activeLang = 'ar';
+      let activeCurrency = 'OMR';
+      let activeFlavorId = 'chocolossus';
+      let selectedBundleId = 'bundle-3'; // Default selected: 3-tin hospitality pack
+      let activeGalleryIdx = 0;
+      let cart = [];
+      let toastTimer = null;
+
+      /* ---------------------------------------------------------
+         4. FORMATTING & DATE HELPERS
+         --------------------------------------------------------- */
+      function formatMoneyHTML(omrValue) {
+        const cfg = CURRENCIES[activeCurrency];
+        const formatted = (omrValue * cfg.rate).toFixed(cfg.decimals);
+        const sym = activeLang === 'ar' ? cfg.symbolAr : cfg.symbolEn;
+        return activeLang === 'ar'
+          ? `<span class="price-num tabular">${formatted}</span> ${sym}`
+          : `<span class="price-num tabular">${formatted}</span> ${sym}`;
+      }
+
+      function computeDeliveryRange(minDays, maxDays) {
+        const now = new Date();
+        const start = new Date(now.getTime() + minDays * 86400000);
+        const end = new Date(now.getTime() + maxDays * 86400000);
+        const locale = activeLang === 'ar' ? 'ar-OM' : 'en-GB';
+        const opts = { weekday: 'short', day: 'numeric', month: 'short' };
+        if (minDays === maxDays) {
+          return activeLang === 'ar'
+            ? `الوصول المتوقع: ${start.toLocaleDateString(locale, opts)} (شحن اليوم من السيب، مسقط)`
+            : `Est. arrival: ${start.toLocaleDateString(locale, opts)} (dispatches today from Muscat)`;
+        }
+        return activeLang === 'ar'
+          ? `الوصول المتوقع: ${start.toLocaleDateString(locale, opts)} – ${end.toLocaleDateString(locale, opts)}`
+          : `Est. arrival: ${start.toLocaleDateString(locale, opts)} – ${end.toLocaleDateString(locale, opts)}`;
+      }
+
+      function getSelectedBundle() {
+        return BUNDLES.find(b => b.id === selectedBundleId) || BUNDLES[2];
+      }
+
+      function getSelectedFlavor() {
+        return FLAVORS.find(f => f.id === activeFlavorId) || FLAVORS[0];
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast-bar');
+        document.getElementById('toast-message').textContent = msg;
+        toast.classList.remove('opacity-0', '-translate-y-2');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', '-translate-y-2');
+        }, 2300);
+      }
+
+      /* ---------------------------------------------------------
+         5. INTERACTIVE GALLERY + TOUCH SWIPE + LIGHTBOX
+         --------------------------------------------------------- */
+      const mainImg = document.getElementById('main-product-img');
+      const galleryStage = document.getElementById('gallery-stage');
+      const galleryCounter = document.getElementById('gallery-counter');
+      const thumbBtns = document.querySelectorAll('.thumb-btn');
+
+      function setGalleryImage(idx) {
+        activeGalleryIdx = (idx + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+        const item = GALLERY_ITEMS[activeGalleryIdx];
+
+        delete mainImg.dataset.fallbackStep;
+        mainImg.src = item.primary;
+        mainImg.alt = activeLang === 'ar' ? item.titleAr : item.titleEn;
+        mainImg.className = `w-full h-full ${item.objectFit} transition duration-300 group-hover:scale-[1.02] img-fade`;
+        mainImg.onerror = () => window.handleProductImgFallback(mainImg, activeGalleryIdx);
+
+        galleryCounter.textContent = `${activeGalleryIdx + 1} / ${GALLERY_ITEMS.length}`;
+
+        thumbBtns.forEach(btn => {
+          const isCurrent = Number(btn.dataset.thumb) === activeGalleryIdx;
+          btn.setAttribute('aria-selected', String(isCurrent));
+          if (isCurrent) {
+            btn.classList.remove('border', 'border-borderwarm');
+            btn.classList.add('border-2', 'border-emeraldbrand', 'ring-2', 'ring-emeraldbrand/20');
+          } else {
+            btn.classList.remove('border-2', 'border-emeraldbrand', 'ring-2', 'ring-emeraldbrand/20');
+            btn.classList.add('border', 'border-borderwarm');
+          }
+        });
+      }
+
+      thumbBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.thumb);
+          setGalleryImage(idx);
+          // Sync flavor pills when clicking Chocolossus (0) or Toffolossus (1)
+          if (idx === 0 && activeFlavorId !== 'chocolossus') {
+            activeFlavorId = 'chocolossus';
+            updateAllUI();
+          } else if (idx === 1 && activeFlavorId !== 'toffolossus') {
+            activeFlavorId = 'toffolossus';
+            updateAllUI();
+          }
+        });
+      });
+
+      function attachSwipe(el, onNext, onPrev) {
+        let startX = 0;
+        let startY = 0;
+        el.addEventListener('touchstart', (e) => {
+          if (e.touches.length !== 1) return;
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        el.addEventListener('touchend', (e) => {
+          if (!e.changedTouches.length) return;
+          const dx = e.changedTouches[0].clientX - startX;
+          const dy = e.changedTouches[0].clientY - startY;
+          if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy)) {
+            const isRtl = activeLang === 'ar';
+            if ((dx > 0 && isRtl) || (dx < 0 && !isRtl)) onNext();
+            else onPrev();
+          }
+        }, { passive: true });
+      }
+
+      attachSwipe(
+        galleryStage,
+        () => setGalleryImage(activeGalleryIdx + 1),
+        () => setGalleryImage(activeGalleryIdx - 1)
+      );
+
+      // Lightbox controls
+      const lightboxModal = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+      const lightboxStage = document.getElementById('lightbox-stage');
+
+      function updateLightbox() {
+        const item = GALLERY_ITEMS[activeGalleryIdx];
+        delete lightboxImg.dataset.fallbackStep;
+        lightboxImg.src = item.primary;
+        lightboxImg.alt = activeLang === 'ar' ? item.titleAr : item.titleEn;
+        lightboxImg.onerror = () => window.handleProductImgFallback(lightboxImg, activeGalleryIdx);
+        lightboxTitle.textContent = activeLang === 'ar' ? item.titleAr : item.titleEn;
+        lightboxCounter.textContent = `${activeGalleryIdx + 1} / ${GALLERY_ITEMS.length}`;
+      }
+
+      function openLightbox() {
+        updateLightbox();
+        lightboxModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightboxModal.classList.add('hidden');
+        restoreBodyScroll();
+      }
+
+      galleryStage.addEventListener('click', openLightbox);
+      galleryStage.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox();
+        }
+      });
+
+      document.getElementById('close-lightbox-btn').addEventListener('click', closeLightbox);
+      document.getElementById('lightbox-backdrop').addEventListener('click', closeLightbox);
+      document.getElementById('lightbox-next').addEventListener('click', () => {
+        setGalleryImage(activeGalleryIdx + 1);
+        updateLightbox();
+      });
+      document.getElementById('lightbox-prev').addEventListener('click', () => {
+        setGalleryImage(activeGalleryIdx - 1);
+        updateLightbox();
+      });
+      attachSwipe(
+        lightboxStage,
+        () => { setGalleryImage(activeGalleryIdx + 1); updateLightbox(); },
+        () => { setGalleryImage(activeGalleryIdx - 1); updateLightbox(); }
+      );
+
+      /* ---------------------------------------------------------
+         6. RENDER FLAVOR PILLS, BUNDLES & REVIEWS
+         --------------------------------------------------------- */
+      function renderFlavors() {
+        const container = document.getElementById('flavor-list');
+        container.innerHTML = FLAVORS.map(f => {
+          const isSelected = f.id === activeFlavorId;
+          const title = activeLang === 'ar' ? f.pillTitleAr : f.pillTitleEn;
+          const desc = activeLang === 'ar' ? f.pillDescAr : f.pillDescEn;
+          return `
+            <button
+              type="button"
+              role="radio"
+              aria-checked="${isSelected}"
+              data-flavor-id="${f.id}"
+              class="flavor-btn min-h-[54px] text-start px-3.5 py-2.5 rounded-2xl border transition flex items-center gap-2.5 ${
+                isSelected
+                  ? 'bg-emerald-50/75 border-2 border-emeraldbrand shadow-sm'
+                  : 'bg-white border-borderwarm hover:border-emeraldbrand/50'
+              }"
+            >
+              <span class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                isSelected ? 'border-emeraldbrand' : 'border-stone-300'
+              }">
+                ${isSelected ? '<span class="w-2 h-2 rounded-full bg-emeraldbrand"></span>' : ''}
+              </span>
+              <div class="min-w-0">
+                <div class="text-xs font-bold text-stone-900 leading-snug">${title}</div>
+                <div class="text-[11px] text-stone-500 truncate">${desc}</div>
+              </div>
+            </button>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.flavor-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            activeFlavorId = btn.dataset.flavorId;
+            setGalleryImage(getSelectedFlavor().imgIdx);
+            updateAllUI();
+          });
+        });
+      }
+
+      function renderBundles() {
+        const container = document.getElementById('bundle-list');
+        container.innerHTML = BUNDLES.map(b => {
+          const isSelected = b.id === selectedBundleId;
+          const perTinOMR = b.priceOMR / b.units;
+          const saveOMR = Math.max(0, b.compareOMR - b.priceOMR);
+          const title = activeLang === 'ar' ? b.titleAr : b.titleEn;
+          const sub = activeLang === 'ar' ? b.subAr : b.subEn;
+          const popularText = activeLang === 'ar' ? 'الأكثر طلباً' : 'Most Popular';
+          const badgeText = b.discountPct > 0
+            ? (activeLang === 'ar' ? `توفير ${b.discountPct}%` : `Save ${b.discountPct}%`)
+            : '';
+          const unitLine = b.units > 1
+            ? (activeLang === 'ar'
+                ? `${formatMoneyHTML(perTinOMR)} / علبة • توفر ${formatMoneyHTML(saveOMR)}`
+                : `${formatMoneyHTML(perTinOMR)} / tin • Save ${formatMoneyHTML(saveOMR)}`)
+            : (activeLang === 'ar'
+                ? `سعر العلبة 600 جم • 14 قطعة`
+                : `600g tin • 14 luxury biscuits`);
+
+          return `
+            <button
+              type="button"
+              role="radio"
+              aria-checked="${isSelected}"
+              data-bundle-id="${b.id}"
+              class="bundle-card relative w-full text-start p-3.5 sm:p-4 rounded-2xl border transition flex items-center justify-between gap-3 ${
+                isSelected
+                  ? 'bg-emerald-50/65 border-2 border-emeraldbrand shadow-sm'
+                  : 'bg-white border-borderwarm hover:border-emeraldbrand/50'
+              }"
+            >
+              ${b.popular ? `
+                <span class="absolute -top-2.5 end-4 bg-amberbrand text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                  ${popularText}
+                </span>
+              ` : ''}
+              <div class="flex items-center gap-3 min-w-0">
+                <span class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                  isSelected ? 'border-emeraldbrand' : 'border-stone-300'
+                }">
+                  ${isSelected ? '<span class="w-2.5 h-2.5 rounded-full bg-emeraldbrand"></span>' : ''}
+                </span>
+                <div class="min-w-0">
+                  <div class="flex items-center flex-wrap gap-1.5">
+                    <span class="font-bold text-sm text-stone-900">${title}</span>
+                    ${badgeText ? `<span class="text-[10px] font-bold bg-amberbrand-soft text-amber-900 px-1.5 py-0.5 rounded-md">${badgeText}</span>` : ''}
+                  </div>
+                  <div class="text-[11px] sm:text-xs text-stone-500 mt-0.5">${sub}</div>
+                  <div class="text-[11px] text-emeraldbrand font-semibold mt-0.5 tabular">${unitLine}</div>
+                </div>
+              </div>
+              <div class="text-end shrink-0 tabular">
+                <div class="font-bold text-sm sm:text-base text-emeraldbrand">${formatMoneyHTML(b.priceOMR)}</div>
+                ${b.compareOMR > b.priceOMR ? `<div class="text-[11px] text-stone-400 line-through">${formatMoneyHTML(b.compareOMR)}</div>` : ''}
+              </div>
+            </button>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.bundle-card').forEach(card => {
+          card.addEventListener('click', () => {
+            selectedBundleId = card.dataset.bundleId;
+            updateAllUI();
+          });
+        });
+      }
+
+      function renderReviews() {
+        const grid = document.getElementById('reviews-grid');
+        grid.innerHTML = REVIEWS.map(r => `
+          <article class="bg-white border border-borderwarm rounded-2xl p-3.5 shadow-sm space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-bold text-stone-900 truncate">${activeLang === 'ar' ? r.nameAr : r.nameEn}</span>
+              <span class="text-[11px] text-stone-500 shrink-0">${activeLang === 'ar' ? r.cityAr : r.cityEn}</span>
+            </div>
+            <div class="text-amberbrand text-xs" aria-label="5 stars">★★★★★</div>
+            <p class="text-[11.5px] text-stone-600 leading-relaxed">${activeLang === 'ar' ? r.textAr : r.textEn}</p>
+          </article>
+        `).join('');
+      }
+
+      /* ---------------------------------------------------------
+         7. FULL BILINGUAL & CURRENCY UI SYNC
+         --------------------------------------------------------- */
+      function updateStaticCopy() {
+        const isAr = activeLang === 'ar';
+        document.documentElement.lang = isAr ? 'ar' : 'en';
+        document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+
+        document.getElementById('lang-toggle-btn').textContent = isAr ? 'EN' : 'عربي';
+        document.getElementById('announcement-shipping-text').textContent = isAr
+          ? 'شحن سريع ومبرّد من عُمان إلى دول الخليج 🇴🇲 🇸🇦 🇦🇪 🇰🇼 🇶🇦 🇧🇭'
+          : 'Fast Chilled GCC Shipping from Oman 🇴🇲 🇸🇦 🇦🇪 🇰🇼 🇶🇦 🇧🇭';
+        document.getElementById('announcement-free-label').textContent = isAr
+          ? 'شحن مجاني للطلبات فوق'
+          : 'Free shipping over';
+
+        document.getElementById('brand-name-primary').textContent = isAr ? 'متجر عبود' : 'Abood Store';
+        document.getElementById('brand-name-sub').textContent = isAr ? 'Abood Store • مسقط' : 'متجر عبود • Muscat';
+
+        document.getElementById('bc-home').textContent = isAr ? 'الرئيسية' : 'Home';
+        document.getElementById('bc-cat').textContent = isAr ? 'مستوردات لندن الفاخرة' : 'Luxury UK Imports';
+
+        document.getElementById('badge-authentic').textContent = isAr ? 'مستورد أصلي 🇬🇧' : 'Authentic UK Import 🇬🇧';
+        document.getElementById('badge-chilled').textContent = isAr ? 'تغليف مبرّد مضمون' : 'Chilled Pack Guaranteed';
+        document.getElementById('zoom-btn-label').textContent = isAr ? 'تكبير' : 'Zoom';
+        document.getElementById('thumb-label-2').textContent = isAr ? 'لوز Harrods' : 'Harrods Almonds';
+
+        document.getElementById('review-count-label').textContent = isAr ? '(تقييم تجريبي — يُربط بتقييمات Shopify)' : '(sample rating — links to Shopify reviews)';
+        document.getElementById('stock-status-label').textContent = isAr ? 'متوفر للشحن الفوري من مسقط' : 'In stock — ships today from Muscat';
+
+        document.getElementById('flavor-section-heading').textContent = isAr ? 'اختر النكهة (الإصدار):' : 'Select Tin Flavor:';
+        document.getElementById('flavor-spec-tag').textContent = isAr ? 'عبوة معدنية 600 جم • 14 قطعة' : '600g Presentation Tin • 14 Biscuits';
+
+        document.getElementById('trust-1').textContent = isAr ? 'تغليف محكم ومبرّد' : 'Chilled Insulated Pack';
+        document.getElementById('trust-2').textContent = isAr ? 'شحن للخليج 2–4 أيام' : 'GCC Shipping 2–4 Days';
+        document.getElementById('trust-3').textContent = isAr ? 'أصلي ومضمون 100%' : '100% Authentic UK';
+
+        document.getElementById('bundle-section-heading').textContent = isAr ? 'اختر الباقة المناسبة لك:' : 'Choose Your Value Bundle:';
+        document.getElementById('bundle-section-sub').textContent = isAr ? 'وفّر أكثر مع باقات الضيافة' : 'Save more on hospitality packs';
+
+        document.getElementById('main-cta-label').textContent = isAr ? 'أضف للسلة' : 'Add to Cart';
+        document.getElementById('sticky-cta-label').textContent = isAr ? 'أضف للسلة' : 'Add to Cart';
+        document.getElementById('sticky-cta-arrow').textContent = isAr ? '←' : '→';
+        document.getElementById('payment-label').textContent = isAr ? 'دفع إلكتروني مشفّر وآمن:' : 'Encrypted GCC Checkout:';
+
+        document.getElementById('reviews-heading').textContent = isAr ? 'آراء العملاء (نموذج للعرض)' : 'Customer Reviews (sample)';
+        document.getElementById('reviews-verified-badge').textContent = isAr ? 'نماذج توضيحية' : 'Sample layout';
+
+        // Accordion content
+        document.getElementById('acc-title-1').textContent = isAr ? 'تفاصيل المنتج والمواصفات (600 جم)' : 'Product Details & Specs (600g Tin)';
+        document.getElementById('acc-body-1').innerHTML = isAr
+          ? `<p><strong>الوزن الصافي:</strong> 600 جرام (1lb 5oz) — تحتوي كل عبوة معدنية أسطوانية على <strong>14 قطعة بسكويت فاخرة</strong> مستوردة مباشرة من <strong>Fortnum &amp; Mason</strong> لندن.</p>
+             <p><strong>التخزين المبرّد:</strong> جميع الكميات محفوظة بدرجة حرارة مضبوطة في مستودع متجر عبود بولاية السيب، مسقط لضمان قوام مقرمش وطعم طازج.</p>`
+          : `<p><strong>Net Weight:</strong> 600g (1lb 5oz) — each signature cylindrical presentation tin holds <strong>14 luxury biscuits</strong> imported directly from <strong>Fortnum &amp; Mason</strong> London.</p>
+             <p><strong>Chilled Storage:</strong> Stored in our temperature-controlled Al Seeb, Muscat facility to guarantee crisp texture and glossy chocolate finish.</p>`;
+
+        document.getElementById('acc-title-2').textContent = isAr ? 'الشحن المبرّد لدول الخليج (2–4 أيام)' : 'Chilled GCC Air Shipping (2–4 Days)';
+        document.getElementById('acc-body-2').textContent = isAr
+          ? 'توصيل سريع داخل سلطنة عُمان خلال 24 ساعة، وشحن جوي مبرّد إلى السعودية، الإمارات، الكويت، قطر، والبحرين خلال 2 إلى 4 أيام عمل داخل عبوات عازلة للحرارة مع كمّادات تبريد مخصصة للشوكولاتة الفاخرة.'
+          : '24-hour chilled courier across Oman, and 2–4 business day express air delivery to Saudi Arabia, UAE, Kuwait, Qatar, and Bahrain in thermal-insulated liners with ice packs.';
+
+        document.getElementById('acc-title-3').textContent = isAr ? 'ضمان الأصالة وجودة الاستلام' : 'Authenticity & Intact Delivery Guarantee';
+        document.getElementById('acc-body-3').textContent = isAr
+          ? 'نضمن أصالة المنتج 100% ووصول الشوكولاتة متماسكة وسليمة. في حال حدوث أي ضرر أثناء الشحن يتكفل متجر عبود بالاستبدال أو التعويض الفوري عبر خدمة عملاء واتساب.'
+          : '100% genuine UK import guarantee. If your tin arrives damaged or heat-affected during transit, Abood Store provides immediate replacement or refund via WhatsApp support.';
+
+        // Cart drawer static strings
+        document.getElementById('cart-drawer-title').textContent = isAr ? 'سلة المشتريات' : 'Your Cart';
+        document.getElementById('upsell-header-pill').textContent = isAr ? '✨ أكمل سلتك للشحن المجاني' : '✨ Unlock Free GCC Shipping';
+        document.getElementById('upsell-header-sub').textContent = isAr ? 'إضافة بضغطة واحدة' : '1-Click Add';
+        document.getElementById('upsell-badge').textContent = isAr ? 'تفتح الشحن المجاني فوراً مع باقة الـ 3 علب' : 'Unlocks free shipping instantly with 3-tin pack';
+        document.getElementById('upsell-title').textContent = isAr ? 'لوز Harrods بالكراميل المملح (325 جم)' : 'Harrods Salted Caramel Almonds (325g)';
+        document.getElementById('add-upsell-harrods-btn').textContent = isAr ? '+ أضف' : '+ Add';
+        document.getElementById('gift-note-label').textContent = isAr ? '🎁 إضافة بطاقة إهداء فاخرة مجانية' : '🎁 Add a complimentary luxury gift note';
+        document.getElementById('gift-note-textarea').placeholder = isAr
+          ? 'اكتب عبارة الإهداء هنا (مثال: كل عام وأنتم بخير، هدية فاخرة من مسقط...)'
+          : 'Write your personal gift message here...';
+        document.getElementById('cart-subtotal-label').textContent = isAr ? 'المجموع الفرعي:' : 'Subtotal:';
+        document.getElementById('checkout-btn-label').textContent = isAr ? 'إتمام الطلب الآمن ←' : 'Secure Checkout →';
+
+        // Modal static strings
+        document.getElementById('modal-kicker').textContent = isAr ? 'AURIX STUDIO • معاينة تفاعلية' : 'AURIX STUDIO • INTERACTIVE PREVIEW';
+        document.getElementById('modal-title').textContent = isAr ? 'ربط مباشر مع متجر عبود على Shopify' : 'Direct Abood Store Shopify Integration';
+        document.getElementById('modal-explanation').innerHTML = isAr
+          ? 'هذه معاينة تجريبية للواجهة — عند التنفيذ يتم ربط هذا الزر مباشرة بسلة ومخزون (<strong>2,484 منتجاً</strong>) وبوابات الدفع الحالية في متجر عبود على <strong>Shopify</strong> دون إعادة إدخال المنتجات.'
+          : 'This is a live storefront preview — upon turnkey deployment, this checkout button connects directly to Abood Store’s existing <strong>Shopify</strong> cart, inventory (<strong>2,484 products</strong>), and payment gateways without re-entering catalog items.';
+        document.getElementById('close-modal-btn').textContent = isAr ? 'حسناً، متابعة استعراض المعاينة' : 'Continue Exploring Preview';
+
+        // Footer static strings
+        document.getElementById('footer-brand-name').textContent = isAr ? 'متجر عبود' : 'Abood Store';
+        document.getElementById('footer-brand-sub').textContent = isAr ? 'Abood Store — مستوردات فاخرة للخليج' : 'Luxury UK & Global Treats for the GCC';
+        document.getElementById('footer-about').textContent = isAr
+          ? 'وجهتك الأولى للشوكولاتة والسناكس المستوردة الفاخرة (Fortnum & Mason، Harrods وغيرها) بشحن سريع ومبرّد من سلطنة عُمان لكافة دول الخليج.'
+          : 'Oman’s premier destination for authentic luxury UK confectionery (Fortnum & Mason, Harrods & rare imports) with chilled express delivery across the GCC.';
+        document.getElementById('footer-info-title').textContent = isAr ? 'بيانات المتجر الرسمية' : 'Official Store Details';
+        document.getElementById('footer-address').textContent = isAr ? 'السيب، مسقط — سلطنة عُمان' : 'Al Seeb, Muscat — Sultanate of Oman';
+        document.getElementById('footer-wa-title').textContent = isAr ? 'خدمة عملاء الخليج' : 'GCC Customer Concierge';
+        document.getElementById('footer-wa-desc').textContent = isAr
+          ? 'لديك استفسار عن الشحن المبرّد لدولتك أو طلبات الهدايا والشركات؟ تواصل معنا مباشرة.'
+          : 'Questions about chilled GCC shipping or corporate gift hampers? Chat with us directly.';
+        document.getElementById('footer-wa-btn-text').textContent = isAr ? '— واتساب متجر عبود' : '— Abood WhatsApp';
+        document.getElementById('footer-copyright').textContent = isAr
+          ? '© 2026 متجر عبود (Abood Store) — السيب، مسقط، سلطنة عُمان. جميع الحقوق محفوظة.'
+          : '© 2026 Abood Store (متجر عبود) — Al Seeb, Muscat, Oman. All rights reserved.';
+
+        // Update currency select options labels cleanly
+        const curSel = document.getElementById('currency-select');
+        Array.from(curSel.options).forEach(opt => {
+          const c = CURRENCIES[opt.value];
+          opt.textContent = isAr
+            ? `${c.flag} ${c.symbolAr} (${opt.value})`
+            : `${c.flag} ${opt.value}`;
+        });
+      }
+
+      function updateAllUI() {
+        updateStaticCopy();
+
+        const cfg = CURRENCIES[activeCurrency];
+        const bundle = getSelectedBundle();
+        const flavor = getSelectedFlavor();
+        const isAr = activeLang === 'ar';
+
+        document.getElementById('top-threshold').innerHTML = formatMoneyHTML(FREE_SHIPPING_OMR);
+        document.getElementById('bc-current').textContent = `Fortnum & Mason ${flavor.shortName}`;
+
+        document.getElementById('product-title').textContent = isAr ? flavor.titleAr : flavor.titleEn;
+        document.getElementById('product-desc').textContent = isAr ? flavor.descAr : flavor.descEn;
+
+        // Live hero price + compare + per-tin unit price
+        const perTinOMR = bundle.priceOMR / bundle.units;
+        const saveOMR = Math.max(0, bundle.compareOMR - bundle.priceOMR);
+        document.getElementById('hero-price').innerHTML = formatMoneyHTML(bundle.priceOMR);
+        document.getElementById('hero-compare-price').innerHTML = formatMoneyHTML(bundle.compareOMR);
+        document.getElementById('hero-savings-badge').textContent = bundle.discountPct > 0
+          ? (isAr ? `توفير ${bundle.discountPct}%` : `Save ${bundle.discountPct}%`)
+          : (isAr ? 'سعر مخفّض' : 'Special Offer');
+
+        document.getElementById('hero-unit-price-row').innerHTML = isAr
+          ? `<span>سعر العلبة: <strong class="text-stone-900">${formatMoneyHTML(perTinOMR)}</strong></span>
+             <span class="text-stone-300">|</span>
+             <span class="text-emeraldbrand">توفر اليوم: <strong>${formatMoneyHTML(saveOMR)}</strong></span>`
+          : `<span>Per tin: <strong class="text-stone-900">${formatMoneyHTML(perTinOMR)}</strong></span>
+             <span class="text-stone-300">|</span>
+             <span class="text-emeraldbrand">You save: <strong>${formatMoneyHTML(saveOMR)}</strong></span>`;
+
+        // Dynamic Delivery ETA Banner
+        document.getElementById('dynamic-delivery-eta').textContent = isAr ? cfg.etaAr : cfg.etaEn;
+        document.getElementById('dynamic-delivery-dates').textContent = computeDeliveryRange(cfg.minDays, cfg.maxDays);
+
+        // CTAs & Sticky bar
+        document.getElementById('main-cta-price').innerHTML = formatMoneyHTML(bundle.priceOMR);
+        const bTitle = isAr ? bundle.titleAr : bundle.titleEn;
+        document.getElementById('sticky-bundle-label').textContent = `${bTitle} • ${flavor.shortName}`;
+        document.getElementById('sticky-price').innerHTML = formatMoneyHTML(bundle.priceOMR);
+
+        // Upsell price
+        document.getElementById('upsell-harrods-price').innerHTML = formatMoneyHTML(UPSELL_HARRODS.priceOMR);
+
+        // Cart shipping country label
+        document.getElementById('cart-shipping-country-label').textContent = isAr
+          ? `الشحن المبرّد إلى ${cfg.countryAr}:`
+          : `Chilled shipping to ${cfg.countryEn}:`;
+
+        renderFlavors();
+        renderBundles();
+        renderReviews();
+        renderCart();
+      }
+
+      /* ---------------------------------------------------------
+         8. SLIDE-OVER CART ENGINE
+         --------------------------------------------------------- */
+      function addItemToCart(item, toastMsg) {
+        const existing = cart.find(i => i.id === item.id);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ ...item, qty: 1 });
+        }
+        renderCart();
+        openCart();
+        if (toastMsg) showToast(toastMsg);
+      }
+
+      function updateItemQty(id, delta) {
+        const idx = cart.findIndex(i => i.id === id);
+        if (idx === -1) return;
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) cart.splice(idx, 1);
+        renderCart();
+      }
+
+      function removeItem(id) {
+        cart = cart.filter(i => i.id !== id);
+        renderCart();
+      }
+
+      function renderCart() {
+        const isAr = activeLang === 'ar';
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        const subtotalOMR = cart.reduce((sum, item) => sum + item.priceOMR * item.qty, 0);
+
+        const badge = document.getElementById('header-cart-badge');
+        badge.textContent = totalItems;
+        badge.classList.toggle('hidden', totalItems === 0);
+        document.getElementById('drawer-count-pill').textContent = totalItems;
+
+        // Dynamic Free Shipping Progress Bar (25.000 OMR) with Emerald Shimmer when unlocked
+        const remainingOMR = Math.max(0, FREE_SHIPPING_OMR - subtotalOMR);
+        const progressPct = Math.min(100, Math.round((subtotalOMR / FREE_SHIPPING_OMR) * 100));
+        const bar = document.getElementById('shipping-progress-bar');
+        const statusEl = document.getElementById('shipping-status-text');
+        const shippingLabel = document.getElementById('cart-shipping-label');
+
+        bar.style.width = `${progressPct}%`;
+        if (subtotalOMR >= FREE_SHIPPING_OMR) {
+          bar.classList.remove('bg-amberbrand');
+          bar.classList.add('shimmer-unlocked');
+          statusEl.innerHTML = isAr
+            ? `<span class="text-emerald-800 font-bold">🎉 تهانينا! حصلت على شحن جوي مبرّد مجاني لدول الخليج</span>`
+            : `<span class="text-emerald-800 font-bold">🎉 Congrats! You unlocked FREE Chilled GCC Shipping</span>`;
+          shippingLabel.innerHTML = isAr
+            ? `<span class="text-emerald-700 font-bold">مجاني 🎉</span>`
+            : `<span class="text-emerald-700 font-bold">FREE 🎉</span>`;
+        } else {
+          bar.classList.remove('shimmer-unlocked');
+          bar.classList.add('bg-amberbrand');
+          statusEl.innerHTML = isAr
+            ? `أضف <span class="text-emeraldbrand font-bold">${formatMoneyHTML(remainingOMR)}</span> للحصول على شحن مجاني للخليج`
+            : `Add <span class="text-emeraldbrand font-bold">${formatMoneyHTML(remainingOMR)}</span> more for FREE GCC shipping`;
+          shippingLabel.textContent = isAr ? 'يُحسب عند الطلب' : 'Calculated at checkout';
+        }
+
+        // Show 1-click Harrods upsell card if cart has items, below threshold, and Harrods not yet added
+        const hasHarrods = cart.some(i => i.id === UPSELL_HARRODS.id);
+        const showUpsell = totalItems > 0 && subtotalOMR < FREE_SHIPPING_OMR && !hasHarrods;
+        document.getElementById('cart-upsell-section').classList.toggle('hidden', !showUpsell);
+
+        // Gift note visibility
+        document.getElementById('gift-note-wrapper').classList.toggle('hidden', cart.length === 0);
+
+        // Cart items rendering
+        const container = document.getElementById('cart-items-container');
+        if (cart.length === 0) {
+          container.innerHTML = `
+            <div class="flex flex-col items-center justify-center text-center py-12 space-y-2">
+              <div class="w-14 h-14 rounded-2xl bg-cream border border-borderwarm flex items-center justify-center text-2xl">🛍️</div>
+              <p class="text-sm font-bold text-stone-800">${isAr ? 'سلتك فارغة حالياً' : 'Your cart is currently empty'}</p>
+              <p class="text-xs text-stone-500 max-w-[240px] leading-relaxed">${
+                isAr
+                  ? 'أضف باقة الضيافة (3 علب) ثم جرّب إضافة لوز Harrods بضغطة واحدة لتفعيل الشحن المجاني.'
+                  : 'Add the 3-tin Hospitality Pack and try the 1-click Harrods upsell to unlock free GCC shipping.'
+              }</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = cart.map(item => {
+            const gItem = GALLERY_ITEMS[item.imgIdx] || GALLERY_ITEMS[0];
+            const itemTitle = isAr ? item.titleAr : item.titleEn;
+            const itemSub = isAr ? item.subAr : item.subEn;
+            return `
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-cream/70 border border-borderwarm">
+                <img
+                  src="${gItem.primary}"
+                  alt="${escapeHtml(itemTitle)}"
+                  width="64"
+                  height="64"
+                  referrerpolicy="no-referrer"
+                  class="w-16 h-16 rounded-xl ${item.imgIdx === 0 ? 'object-cover' : 'object-contain p-1'} bg-white border border-borderwarm shrink-0"
+                  onerror="handleProductImgFallback(this, ${item.imgIdx})"
+                />
+                <div class="flex-1 min-w-0 space-y-1">
+                  <div class="flex items-start justify-between gap-2">
+                    <div class="text-xs font-bold text-stone-900 leading-snug">${escapeHtml(itemTitle)}</div>
+                    <button
+                      type="button"
+                      data-remove-id="${item.id}"
+                      aria-label="Remove item"
+                      class="remove-item-btn text-stone-400 hover:text-red-600 text-xs px-1.5 py-0.5 transition shrink-0"
+                    >✕</button>
+                  </div>
+                  <div class="text-[11px] text-stone-500 truncate">${escapeHtml(itemSub)}</div>
+                  <div class="flex items-center justify-between pt-1">
+                    <div class="text-xs font-bold text-emeraldbrand tabular">${formatMoneyHTML(item.priceOMR * item.qty)}</div>
+                    <div class="flex items-center border border-borderwarm rounded-xl bg-white overflow-hidden shadow-sm">
+                      <button type="button" data-qty-id="${item.id}" data-delta="-1" aria-label="Decrease quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-stone-700 hover:bg-stone-100 font-bold transition">−</button>
+                      <span class="w-7 text-center text-xs font-bold tabular">${item.qty}</span>
+                      <button type="button" data-qty-id="${item.id}" data-delta="1" aria-label="Increase quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-stone-700 hover:bg-stone-100 font-bold transition">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          container.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', () => updateItemQty(btn.dataset.qtyId, Number(btn.dataset.delta)));
+          });
+          container.querySelectorAll('.remove-item-btn').forEach(btn => {
+            btn.addEventListener('click', () => removeItem(btn.dataset.removeId));
+          });
+        }
+
+        document.getElementById('cart-subtotal').innerHTML = formatMoneyHTML(subtotalOMR);
+        document.getElementById('checkout-btn').disabled = cart.length === 0;
+      }
+
+      /* ---------------------------------------------------------
+         9. DRAWER, MODAL, GIFT NOTE & SMART STICKY BAR OBSERVER
+         --------------------------------------------------------- */
+      const cartDrawer = document.getElementById('cart-drawer');
+      const previewModal = document.getElementById('preview-modal');
+      const giftCheckbox = document.getElementById('gift-note-checkbox');
+      const giftInputBox = document.getElementById('gift-note-input-box');
+      const giftTextarea = document.getElementById('gift-note-textarea');
+      const giftCharCount = document.getElementById('gift-char-count');
+
+      giftCheckbox.addEventListener('change', () => {
+        giftInputBox.classList.toggle('hidden', !giftCheckbox.checked);
+        if (giftCheckbox.checked) giftTextarea.focus();
+      });
+
+      giftTextarea.addEventListener('input', () => {
+        giftCharCount.textContent = giftTextarea.value.length;
+      });
+
+      function restoreBodyScroll() {
+        const allClosed =
+          cartDrawer.classList.contains('hidden') &&
+          previewModal.classList.contains('hidden') &&
+          lightboxModal.classList.contains('hidden');
+        if (allClosed) document.body.style.overflow = '';
+      }
+
+      function openCart() {
+        cartDrawer.classList.remove('hidden');
+        requestAnimationFrame(() => cartDrawer.classList.add('is-open'));
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCart() {
+        cartDrawer.classList.remove('is-open');
+        setTimeout(() => {
+          cartDrawer.classList.add('hidden');
+          restoreBodyScroll();
+        }, 250);
+      }
+
+      function openPreviewModal() {
+        const isAr = activeLang === 'ar';
+        const cfg = CURRENCIES[activeCurrency];
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        const subtotalOMR = cart.reduce((sum, item) => sum + item.priceOMR * item.qty, 0);
+        const isFreeShipping = subtotalOMR >= FREE_SHIPPING_OMR;
+        const giftText = giftCheckbox.checked ? giftTextarea.value.trim() : '';
+
+        const itemsListHtml = cart.map(item => {
+          const name = isAr ? item.titleAr : item.titleEn;
+          return `
+            <div class="flex items-center justify-between gap-2 text-[11px] text-stone-700">
+              <span class="truncate">${item.qty}× ${escapeHtml(name)}</span>
+              <span class="font-semibold text-stone-900 shrink-0 tabular">${formatMoneyHTML(item.priceOMR * item.qty)}</span>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('modal-order-summary').innerHTML = `
+          <div class="font-bold text-stone-900 pb-1.5 border-b border-borderwarm/80 flex items-center justify-between">
+            <span>${isAr ? 'ملخص الطلب التجريبي' : 'Simulated Order Summary'}</span>
+            <span class="text-emeraldbrand tabular">${totalItems} ${isAr ? (totalItems === 1 ? 'عنصر' : 'عناصر') : (totalItems === 1 ? 'item' : 'items')}</span>
+          </div>
+          <div class="space-y-1 py-1 border-b border-borderwarm/60">
+            ${itemsListHtml}
+          </div>
+          <div class="flex items-center justify-between text-stone-600">
+            <span>${isAr ? 'الوجهة والعملة:' : 'Destination & Currency:'}</span>
+            <span class="font-bold text-stone-900">${cfg.flag} ${isAr ? cfg.countryAr : cfg.countryEn} (${activeCurrency})</span>
+          </div>
+          <div class="flex items-center justify-between text-stone-600">
+            <span>${isAr ? 'الشحن المبرّد:' : 'Chilled GCC Shipping:'}</span>
+            <span class="font-bold ${isFreeShipping ? 'text-emerald-700' : 'text-stone-800'}">${
+              isFreeShipping
+                ? (isAr ? 'مجاني (تجاوز 25 ر.ع) 🎉' : 'FREE (Over 25 OMR) 🎉')
+                : (isAr ? 'يُحسب في Shopify' : 'Calculated at Shopify')
+            }</span>
+          </div>
+          ${giftText ? `
+            <div class="pt-1 border-t border-borderwarm/60 space-y-0.5">
+              <div class="text-[11px] font-bold text-emeraldbrand">${isAr ? '🎁 بطاقة الإهداء المرفقة:' : '🎁 Complimentary Gift Note:'}</div>
+              <div class="text-[11px] text-stone-700 italic break-words">"${escapeHtml(giftText)}"</div>
+            </div>
+          ` : ''}
+          <div class="flex items-center justify-between pt-2 border-t border-borderwarm text-sm">
+            <span class="font-bold text-stone-900">${isAr ? 'الإجمالي المحوّل:' : 'Converted Total:'}</span>
+            <span class="font-bold text-emeraldbrand tabular">${formatMoneyHTML(subtotalOMR)}</span>
+          </div>
+        `;
+
+        previewModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePreviewModal() {
+        previewModal.classList.add('hidden');
+        restoreBodyScroll();
+      }
+
+      // Smart Mobile Sticky Bar: auto-hides when main Add-to-Cart button is visible in viewport
+      const mainCtaBtn = document.getElementById('main-add-to-cart');
+      const mobileStickyBar = document.getElementById('mobile-sticky-bar');
+      if ('IntersectionObserver' in window && mainCtaBtn && mobileStickyBar) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              mobileStickyBar.classList.toggle('is-hidden-bar', entry.isIntersecting);
+            });
+          },
+          { threshold: 0.15 }
+        );
+        observer.observe(mainCtaBtn);
+      }
+
+      /* ---------------------------------------------------------
+         10. EVENT BINDINGS & BOOTSTRAP
+         --------------------------------------------------------- */
+      document.getElementById('lang-toggle-btn').addEventListener('click', () => {
+        activeLang = activeLang === 'ar' ? 'en' : 'ar';
+        updateAllUI();
+        showToast(activeLang === 'ar' ? 'تم التحويل إلى اللغة العربية' : 'Switched to English (LTR)');
+      });
+
+      document.getElementById('currency-select').addEventListener('change', (e) => {
+        activeCurrency = e.target.value;
+        const cfg = CURRENCIES[activeCurrency];
+        updateAllUI();
+        showToast(
+          activeLang === 'ar'
+            ? `تم تحديث الأسعار إلى ${cfg.countryAr} (${cfg.symbolAr})`
+            : `Prices updated to ${cfg.countryEn} (${activeCurrency})`
+        );
+      });
+
+      function handleAddSelectedBundle() {
+        const b = getSelectedBundle();
+        const f = getSelectedFlavor();
+        addItemToCart(
+          {
+            id: `${b.id}-${f.id}`,
+            titleAr: `بسكويت Fortnum & Mason ${f.shortName}`,
+            subAr: `${b.titleAr} • 600 جم`,
+            titleEn: `Fortnum & Mason ${f.shortName}`,
+            subEn: `${b.titleEn} • 600g`,
+            priceOMR: b.priceOMR,
+            imgIdx: f.imgIdx
+          },
+          activeLang === 'ar' ? `أُضيفت ${b.titleAr} إلى السلة` : `Added ${b.titleEn} to cart`
+        );
+      }
+
+      mainCtaBtn.addEventListener('click', handleAddSelectedBundle);
+      document.getElementById('sticky-add-to-cart').addEventListener('click', handleAddSelectedBundle);
+
+      document.getElementById('add-upsell-harrods-btn').addEventListener('click', () => {
+        addItemToCart(
+          UPSELL_HARRODS,
+          activeLang === 'ar'
+            ? 'أُضيف لوز Harrods واكتمل الشحن المجاني 🎉'
+            : 'Added Harrods Almonds — Free shipping unlocked 🎉'
+        );
+      });
+
+      document.getElementById('open-cart-btn').addEventListener('click', openCart);
+      document.getElementById('close-cart-btn').addEventListener('click', closeCart);
+      document.getElementById('cart-backdrop').addEventListener('click', closeCart);
+      document.getElementById('checkout-btn').addEventListener('click', openPreviewModal);
+      document.getElementById('close-modal-btn').addEventListener('click', closePreviewModal);
+      document.getElementById('modal-backdrop').addEventListener('click', closePreviewModal);
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightboxModal.classList.contains('hidden')) {
+          const isRtl = activeLang === 'ar';
+          if (e.key === 'Escape') closeLightbox();
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            const forward = (e.key === 'ArrowLeft') === isRtl;
+            setGalleryImage(activeGalleryIdx + (forward ? 1 : -1));
+            updateLightbox();
+          }
+          return;
+        }
+        if (e.key === 'Escape') {
+          if (!previewModal.classList.contains('hidden')) closePreviewModal();
+          else if (!cartDrawer.classList.contains('hidden')) closeCart();
+        }
+      });
+
+      updateAllUI();
+      setGalleryImage(0);
+    })();
+  </script>
+</body>
+</html>
